@@ -25,7 +25,13 @@ module CopingListApp
     config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.
-    #
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      g.skip_routes true
+      g.test_framework false
+    end
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
