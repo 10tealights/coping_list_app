@@ -1,2 +1,30 @@
 <h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<p>ユーザー登録</p>
+
+<%= form_with model: @user, local: true do |f| %>
+	<% if @user.errors.present? %>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<div class="form-group">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="form-group">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+	<div class="form-group">
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</div>
+	<div class="form-group">
+		<%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<br />
+	<%= f.submit %>
+<% end %>
