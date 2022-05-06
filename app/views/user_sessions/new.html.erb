@@ -1,2 +1,19 @@
 <h1>UserSessions#new</h1>
-<p>Find me in app/views/user_sessions/new.html.erb</p>
+<p>ユーザーログイン</p>
+
+<% flash.each do |message_type, message| %>
+	<p><%= message %></p>
+<% end %>	
+
+<%= form_with url: login_path, local: true do |f| %>
+	</div>
+	<div class="form-group">
+		<%= f.label :email %><br />
+		<%= f.text_field :email %>
+	</div>
+	<div class="form-group">
+		<%= f.label :password %><br />
+		<%= f.password_field :password %>
+	</div>
+	<%= f.submit %>
+<% end %>
