@@ -4,5 +4,5 @@
 <%= link_to 'リスト新規作成', new_coping_list_path %>
 
 <% @coping_lists.each do |coping| %>
-	<h3><%= coping.list_name %></h3>
+	<h3><%= link_to coping.list_name, coping_list_copings_path(coping.id) %></h3>
 <% end %>

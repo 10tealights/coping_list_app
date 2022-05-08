@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_074105) do
+ActiveRecord::Schema.define(version: 2022_05_06_123555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2022_05_06_074105) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_coping_lists_on_user_id"
+  end
+
+  create_table "copings", force: :cascade do |t|
+    t.bigint "coping_list_id", null: false
+    t.string "coping_name", null: false
+    t.integer "cost_amount"
+    t.integer "time_amount"
+    t.string "emoji", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coping_list_id"], name: "index_copings_on_coping_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +46,5 @@ ActiveRecord::Schema.define(version: 2022_05_06_074105) do
   end
 
   add_foreign_key "coping_lists", "users"
+  add_foreign_key "copings", "coping_lists"
 end

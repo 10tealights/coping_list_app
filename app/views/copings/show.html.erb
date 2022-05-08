@@ -1,0 +1,10 @@
+<h1>Copings#show</h1>
+<p>コーピング項目 個別詳細</p>
+
+<h3><%= @coping_list.list_name %></h3>
+
+<%= "#{@coping.emoji} #{@coping.coping_name}" %><br/>
+<%= "#{@coping.time_amount}分 / #{@coping.cost_amount}円" %><br/>
+<br/>
+<%= link_to 'さらに項目を追加', new_coping_list_coping_path(@coping_list) %><br/>
+この項目で記録する
