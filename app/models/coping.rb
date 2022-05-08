@@ -5,5 +5,5 @@ class Coping < ApplicationRecord
   validates :emoji, presence: true
   validates :status, presence: true
 
-  enum status: { public: 0, private: 1 }
+  enum status: { open: 0, close: 1 }
 end
