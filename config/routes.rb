@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :coping_lists do
     resources :copings
+    resources :histories, only: %i[index new create show]
   end
 end
