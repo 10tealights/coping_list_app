@@ -1,0 +1,29 @@
+<h1>Histories#new</h1>
+<p>コーピング項目の評価新規作成</p>
+
+<h3><%= @coping.coping_name %></h3>
+<%= form_with model: [@coping_list, @coping, @history], local: true do |f| %>
+	<% if @history.errors.present? %>
+		<ul>
+			<% @history.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<div class="form-group">
+		<%= f.label :change_amount %><br />
+		<%= f.number_field :change_amount, min: -100, max: 100 %>
+	</div>
+    <div class="form-group">
+		<%= f.label :evaluation %><br />
+		<%= f.number_field :evaluation, min: 1, max: 5 %>
+	</div>
+    <div class="form-group">
+		<%= f.label :note %><br />
+		<%= f.text_area :note %>
+	</div>
+	<br />
+	<%= f.submit %>
+<% end %>
+</br>
+<%= link_to 'リスト一覧', coping_lists_path %>

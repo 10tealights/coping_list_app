@@ -1,0 +1,14 @@
+<h1>Copings#histories</h1>
+<p>コーピングリストごとの履歴一覧</p>
+
+<h3><%= @coping_list.list_name %></h3>
+
+<% @histories.each do |history|%>
+	【<%= history.created_at %>】<br/>
+    <%= "#{history.coping.emoji} #{history.coping.coping_name}" %>
+	<%= "評価:#{history.evaluation} / 変化:#{history.change_amount}" %><br/>
+    <%= history.note %>
+	<br/><br/>
+<% end %>
+<br/>
+<%= link_to 'リスト一覧を見る', coping_list_copings_path(@coping_list) %>
