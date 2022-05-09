@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_123555) do
+ActiveRecord::Schema.define(version: 2022_05_09_014058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2022_05_06_123555) do
     t.index ["coping_list_id"], name: "index_copings_on_coping_list_id"
   end
 
+  create_table "histories", force: :cascade do |t|
+    t.bigint "coping_id", null: false
+    t.float "evaluation", null: false
+    t.integer "change_amount", null: false
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coping_id"], name: "index_histories_on_coping_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -47,4 +57,5 @@ ActiveRecord::Schema.define(version: 2022_05_06_123555) do
 
   add_foreign_key "coping_lists", "users"
   add_foreign_key "copings", "coping_lists"
+  add_foreign_key "histories", "copings"
 end
