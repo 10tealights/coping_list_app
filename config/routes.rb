@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'user_sessions#destroy'
   resources :users, only: %i[new create]
   resources :coping_lists do
-    resources :copings
+    resources :copings do
+      resources :histories, only: %i[index new create show], shallow: true
+    end
+    get 'histories', on: :member
   end
 end

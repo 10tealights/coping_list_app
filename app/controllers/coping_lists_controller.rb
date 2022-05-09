@@ -23,6 +23,11 @@ class CopingListsController < ApplicationController
   def edit
   end
 
+  def histories
+    @coping_list = current_user.coping_lists.find(params[:id])
+    @histories = History.joins(:coping).where(copings: { coping_list_id: @coping_list.id }).order(created_at: :desc)
+  end
+
   private
 
   def coping_list_params

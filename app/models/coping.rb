@@ -1,5 +1,6 @@
 class Coping < ApplicationRecord
   belongs_to :coping_list
+  has_many :histories, dependent: :destroy
 
   validates :coping_name, presence: true
   validates :emoji, presence: true

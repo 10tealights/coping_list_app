@@ -4,9 +4,10 @@
 <h3><%= @coping_list.list_name %></h3>
 
 <%= link_to '項目新規追加', new_coping_list_coping_path(@coping_list) %><br/>
+<%= link_to 'このリストの履歴を見る', histories_coping_list_path(@coping_list) %><br/>
 <br/>
 <% @copings.each do |coping_item|%>
-	<%= "#{coping_item.emoji} #{coping_item.coping_name}" %><br/>
+	<%= coping_item.emoji %><%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %><br/>
 	<%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %><br/>
 	<br/>
 <% end %>
