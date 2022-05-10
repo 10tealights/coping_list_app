@@ -1,0 +1,8 @@
+<h1>Copings#others</h1>
+<p>他の人の項目から選ぶ</p>
+
+<% @other_copings.each do |coping_item|%>
+	<%= coping_item.emoji %><%= link_to coping_item.coping_name, copy_coping_list_copings_path(@coping_list, coping_id: coping_item.id) %><br/>
+	<%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %><br/>
+	<br/>
+<% end %>

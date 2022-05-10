@@ -1,6 +1,9 @@
 <h1>Copings#new</h1>
 <p>コーピング項目新規追加</p>
 
+<%= link_to '他の人のリストから選ぶ', others_coping_list_copings_path(@coping_list) %>
+<br />
+<br />
 <%= form_with model: @coping, url: coping_list_copings_path(@coping_list), local: true do |f| %>
 	<% if @coping.errors.present? %>
 		<ul>

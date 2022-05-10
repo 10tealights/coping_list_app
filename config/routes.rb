@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :coping_lists do
     resources :copings do
       resources :histories, only: %i[index new create show], shallow: true
+      get 'others', on: :collection
+      get 'copy', on: :collection
     end
     get 'histories', on: :member
   end

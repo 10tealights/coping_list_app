@@ -1,5 +1,5 @@
 class CopingsController < ApplicationController
-  before_action :set_coping_list, only: %i[index new create show]
+  before_action :set_coping_list, only: %i[index new create show others copy]
 
   def index
     @copings = @coping_list.copings
@@ -20,6 +20,16 @@ class CopingsController < ApplicationController
 
   def show
     @coping = @coping_list.copings.find(params[:id])
+  end
+
+  def others
+    @other_copings = Coping.eager_load(coping_list: :user).where.not(user: { id: current_user.id }).where.not(status: 'close').sample(10)
+  end
+
+  def copy
+    @other_coping = Coping.find(params[:coping_id])
+    @coping = @coping_list.copings.build(coping_name: @other_coping.coping_name, cost_amount: @other_coping.cost_amount, time_amount: @other_coping.time_amount, emoji: @other_coping.emoji)
+    render :new
   end
 
   private
