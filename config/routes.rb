@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   resources :coping_lists do
     resources :copings do
       resources :histories, only: %i[index new create show], shallow: true
-      get 'others', on: :collection
-      get 'copy', on: :collection
+      collection do
+        get :others
+        get :copy
+        get '/shuffle', to: 'selections#shuffle'
+        get '/high_late', to: 'selections#high_rate'
+        get '/never_done', to: 'selections#never_done'
+      end
     end
     get 'histories', on: :member
   end
