@@ -1,0 +1,18 @@
+<h1>Selections#select</h1>
+<p>コーピング3択から選択</p>
+
+<h3><%= @coping_list.list_name %></h3>
+
+<% if action_name == 'shuffle' && @selected_copings.empty? %>
+    <%= link_to 'リスト新規作成', new_coping_list_path %><br/>
+    <p>まだ項目の登録がありません！</p><br/>
+<% end %>
+
+<% @selected_copings.each do |coping_item|%>
+	<%= coping_item.emoji %><%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %><br/>
+	<%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %><br/>
+	<br/>
+<% end %>
+
+<%= link_to '別の方法でやり直す', select_coping_list_copings_path(@coping_list) %><br />
+<%= link_to 'リスト一覧を見る', coping_lists_path %>

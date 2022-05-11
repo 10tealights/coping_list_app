@@ -2,7 +2,10 @@
 <p>コーピングリスト一覧</p>
 
 <%= link_to 'リスト新規作成', new_coping_list_path %>
-
+<br /><br />
 <% @coping_lists.each do |coping| %>
-	<h3><%= link_to coping.list_name, coping_list_copings_path(coping.id) %></h3>
+	<h4><%= link_to coping.list_name, coping_list_copings_path(coping) %></h4>
+	<%= link_to 'Shuffle', shuffle_coping_list_copings_path(coping) %> | 
+	<%= link_to 'Evaluation', high_late_coping_list_copings_path(coping) %> | 
+	<%= link_to 'Never', never_done_coping_list_copings_path(coping) %>
 <% end %>
