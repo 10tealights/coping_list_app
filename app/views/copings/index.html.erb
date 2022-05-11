@@ -7,9 +7,8 @@
 <%= link_to 'このリストの履歴を見る', histories_coping_list_path(@coping_list) %><br/>
 <br/>
 <% @copings.each do |coping_item|%>
-	<%= coping_item.emoji %><%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %><br/>
-	<%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %><br/>
-	<br/>
+	<%= coping_item.emoji %><%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %>
+	<%= "(#{coping_item.time_amount}分 / #{coping_item.cost_amount}円)" %><br/>
 <% end %>
-
+<br/>
 <%= link_to 'リスト一覧を見る', coping_lists_path %>
