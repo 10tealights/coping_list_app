@@ -6,13 +6,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
-    <%= render 'shared/flash_messages' %>
-    <%= yield %>
+  <body class="flex flex-col min-h-screen">
+    <header class="sticky top-0 z-10">
+      <%= render 'shared/navbar' %>
+    </header>
+    <div class="container">
+      <main class="flex-grow">
+        <%= render 'shared/flash_messages' %>
+        <%= yield %>
+      </main>
+    </div>
+    <div class="sticky bottom-0">
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
