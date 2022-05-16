@@ -1,29 +1,51 @@
-<h1>Histories#new</h1>
-<p>コーピング項目の評価新規作成</p>
+<div class="container mx-auto lg:w-3/5">
+	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white">評価登録</h1>
+	<p class="mt-2 text-sm text-center text-gray-600"><%= "- #{@coping.coping_name} -" %></p>
 
-<h3><%= @coping.coping_name %></h3>
-<%= form_with model: [@coping_list, @coping, @history], local: true do |f| %>
-	<% if @history.errors.present? %>
-		<ul>
-			<% @history.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
+  	<!-- history form -->
+	<div class="mb-12">
+		<%= form_with model: [@coping_list, @coping, @history], local: true do |f| %>
+			<% if @history.errors.present? %>
+				<ul>
+					<% @history.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
 			<% end %>
-		</ul>
-	<% end %>
-	<div class="form-group">
-		<%= f.label :change_amount %><br />
-		<%= f.number_field :change_amount, min: -100, max: 100 %>
+			<div>
+				<%= f.label :change_amount, class:'block mb-2 text-sm text-gray-600 dark:text-gray-200' %>
+				<%= f.range_field :change_amount, in: -100..100, step: 1, class: 'form-range cursor-pointer appearance-none w-full h-3 p-0 bg-yellow-100 focus:outline-none focus:ring-0 focus:shadow-none' %>
+				<div class="flex justify-between">
+					<div class="text-sm text-gray-700 -ml-1 bottom-0 -mb-4">-100</div>
+					<div class="text-sm text-gray-700 -mr-1 bottom-0 -mb-4">0</div>
+					<div class="text-sm text-gray-700 -mr-1 bottom-0 -mb-4">+100</div>
+				</div>
+			</div>
+
+			<div class="mt-8">
+				<%= f.label :evaluation, class:'block mb-2 text-sm text-gray-600 dark:text-gray-200' %>
+				<%= f.range_field :evaluation, in: 1..5, step: 0.5, class: 'form-range cursor-pointer appearance-none w-full h-3 p-0 bg-yellow-100 focus:outline-none focus:ring-0 focus:shadow-none' %>
+				<div class="flex justify-between">
+					<div class="text-sm text-gray-700 -ml-1 bottom-0 -mb-4">1</div>
+					<div class="text-sm text-gray-700 -mr-1 bottom-0 -mb-4">2</div>
+					<div class="text-sm text-gray-700 -mr-1 bottom-0 -mb-4">3</div>
+					<div class="text-sm text-gray-700 -mr-1 bottom-0 -mb-4">4</div>
+					<div class="text-sm text-gray-700 -mr-1 bottom-0 -mb-4">5</div>
+				</div>
+			</div>
+
+			<div class="mt-6">
+				<div class="flex justify-between mb-2">
+					<%= f.label :note, class: 'text-sm text-gray-600 dark:text-gray-200' %>
+				</div>
+				<%= f.text_area :note, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
+			</div>
+
+			<div class="mt-6">
+				<%= f.submit '記録', class:'w-full px-4 py-2 tracking-wide text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+			</div>
+
+		<% end %>
+		<%= link_to "#{@coping_list.list_name}一覧に戻る", coping_list_copings_path(@coping_list), class: 'flex items-center justify-center mt-6 mb-10 text-sm text-green-600 focus:outline-none focus:underline hover:underline' %>
 	</div>
-    <div class="form-group">
-		<%= f.label :evaluation %><br />
-		<%= f.number_field :evaluation, min: 1, max: 5 %>
-	</div>
-    <div class="form-group">
-		<%= f.label :note %><br />
-		<%= f.text_area :note %>
-	</div>
-	<br />
-	<%= f.submit %>
-<% end %>
-</br>
-<%= link_to 'リスト一覧', coping_lists_path %>
+</div>

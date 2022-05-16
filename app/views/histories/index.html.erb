@@ -1,16 +1,30 @@
-<h1>Histories#index</h1>
-<p>コーピング項目の評価履歴一覧</p>
+<div class="container mx-auto lg:w-3/5 p-2">
+	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white">評価履歴</h1>
+	<p class="mt-2 text-sm text-center text-gray-600"><%= @coping_list.list_name %></p>
+	<hr>
+	<p class="mb-4 text-sm text-center text-gray-600"><%= @coping.coping_name %></p>
 
-<h3><%= @coping_list.list_name %></h3>
-<h4><%= @coping.coping_name %></h4>
+	<% @histories.each do |history|%>
+		<div class="grid flex-wrap grid-cols-1 gap-3 my-3 mx-auto xl:mt-6">
+				<div class="w-full border border-yellow-300 dark:border-green-300 rounded-md">
+					<div class="p-2 bg-yellow-50">
+						<div class="flex items-end">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" clip-rule="evenodd" />
+							</svg>
+							<span class="text-gray-700 dark:text-gray-300"><%= history.created_at %></span>
+							<span class="ml-auto text-gray-700 dark:text-gray-300"><%= "評価:#{history.evaluation} / 変化:#{history.change_amount}" %></span>
+						</div>
+					</div>
 
-<% @histories.each do |history|%>
-	<%= history.created_at %><br/>
-	<%= "評価:#{history.evaluation} / 変化:#{history.change_amount}" %><br/>
-    <%= history.note %>
-	<br/>
-<% end %>
-<br/>
+					<hr class="border-yellow-300 dark:border-gray-700">
 
-<%= link_to 'このリストの項目一覧を見る', coping_list_copings_path(@coping_list) %><br/>
-<%= link_to 'このリストの履歴一覧を見る', histories_coping_list_path(@coping_list) %>
+					<div class="p-2">
+						<p class=" text-gray-700 lg:text-md dark:text-white"><%= history.note %></p>
+					</div>
+				</div>
+		</div>
+	<% end %>
+	<%= link_to "#{@coping_list.list_name}の評価履歴一覧", histories_coping_list_path(@coping_list), class: 'inline-block w-full text-center mt-6 text-md text-green-600 focus:outline-none focus:underline hover:underline' %>
+	<%= link_to "#{@coping_list.list_name}一覧に戻る", coping_list_copings_path(@coping_list), class: 'inline-block w-full text-center mt-6 mb-10 text-md text-green-600 focus:outline-none focus:underline hover:underline' %>
+</div>
