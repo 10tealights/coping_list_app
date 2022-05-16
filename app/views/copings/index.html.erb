@@ -1,14 +1,30 @@
-<h1>Copings#index</h1>
-<p>コーピング項目一覧</p>
+<div class="container mx-auto lg:w-3/5 p-2">
+	<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピング一覧</h1>
 
-<h3><%= @coping_list.list_name %></h3>
+	<div class="w-full max-w-screen-xl mx-auto">
+		<div class="flex justify-center y-10">
+			<div class="w-full max-w-lg">
+				<div class="bg-green-50 shadow-md rounded-sm px-3 pt-2 pb-4 mb-3">
+					<div class="block text-green-700 text-center text-lg font-semibold py-1">
+						<%= @coping_list.list_name %>
+					</div>
+					<% @copings.each.with_index(1) do |coping_item, n|%>
+						<div class="flex justify-start border-b border-dotted text-green-700 rounded-md py-1 px-1">
+							<div class="flex-grow px-1 text-gray-700 cursor-pointer hover:text-green-700">
+								<%= "#{n}." %>
+								<%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %>
+							</div>
+							<div class="text-sm font-normal text-gray-500 tracking-wide"><%= "(#{coping_item.time_amount}分/#{coping_item.cost_amount}円)" %></div>
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-300" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  								<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+							</svg>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<%= link_to '項目新規追加', new_coping_list_coping_path(@coping_list) %><br/>
-<%= link_to 'このリストの履歴を見る', histories_coping_list_path(@coping_list) %><br/>
-<br/>
-<% @copings.each do |coping_item|%>
-	<%= coping_item.emoji %><%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %>
-	<%= "(#{coping_item.time_amount}分 / #{coping_item.cost_amount}円)" %><br/>
-<% end %>
-<br/>
-<%= link_to 'リスト一覧を見る', coping_lists_path %>
+	<%= link_to 'このリストにコーピングを追加する', new_coping_list_coping_path(@coping_list), class:'block mx-auto max-w-lg justify-self-center text-center my-5 px-4 py-2 text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+	<%= link_to 'リスト一覧に戻る', coping_lists_path, class: 'block mb-5 text-center text-green-700' %>
+</div>

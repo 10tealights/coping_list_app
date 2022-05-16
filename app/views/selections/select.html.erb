@@ -1,17 +1,29 @@
-<h1>Selections#select</h1>
-<p>コーピング3択から選択</p>
+<div class="container mx-auto xl:w-4/5">
+	<div class="mx-auto lg:w-3/5">
+		<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピング選択</h1>
+	</div>
 
-<h3><%= @coping_list.list_name %></h3>
+	<div class="grid flex-wrap grid-cols-1 gap-3 my-8 xl:mt-12 xl:gap-4 lg:grid-cols-2">
+		<% @selected_copings.each do |coping_item|%>
+			<%= link_to new_coping_list_coping_history_path(@coping_list, coping_item), class: 'p-0 text-green-600 capitalize transition-colors duration-200 transform dark:bg-green-500 dark:text-white hover:text-green-600 dark:hover:text-green-500' do %>
+				<div class="w-full p-2 space-y-1 border-2 border-green-200 bg-green-50 hover:bg-green-100 dark:border-green-300 rounded-md">
+					<h2 class="text-center text-xl font-semibold text-green-600 capitalize dark:text-white">
+						<%= "#{coping_item.emoji} #{coping_item.coping_name}" %>
+					</h2>
+					<hr class="h-px my-6 bg-gray-300 border-none">
+					<p class="mt-6 text-sm text-center text-gray-400"><%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %></p>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 
-<% if action_name == 'shuffle' && @selected_copings.empty? %>
-    <%= link_to 'リスト新規作成', new_coping_list_path %><br/>
-    <p>まだ項目の登録がありません！</p><br/>
-<% end %>
-
-<% @selected_copings.each do |coping_item|%>
-	<%= coping_item.emoji %><%= link_to coping_item.coping_name, new_coping_list_coping_history_path(@coping_list, coping_item) %><br/>
-	<%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %><br/>
-	<br/>
-<% end %>
-
-<%= link_to 'リスト一覧を見る', coping_lists_path %>
+	<% if action_name == 'shuffle' && @selected_copings.empty? %>
+		<div class="mx-auto lg:w-3/5">
+			<p class="my-2 text-center text-gray-700">まだ項目の登録がありません。</p>
+			<p class="mt-2 mb-10 text-center text-gray-700">新しくコーピングを登録しましょう！</p>
+			<%= link_to '新しく項目をを登録する', new_coping_list_coping_path(@coping_list), class:'flex place-item-center items-center justify-center my-4 px-4 py-2 text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+			<%= link_to '他の人の作成した項目から登録する', others_coping_list_copings_path(@coping_list), class:'flex place-item-center items-center justify-center my-2 px-4 py-2 text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+		</div>
+	<% end %>
+	<%= link_to "コーピングリスト一覧に戻る", coping_lists_path, class: 'flex w-auto items-center justify-center mt-6 mb-10 text-md text-green-600 focus:outline-none focus:underline hover:underline' %>
+</div>

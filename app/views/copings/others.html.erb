@@ -1,8 +1,32 @@
-<h1>Copings#others</h1>
-<p>他の人の項目から選ぶ</p>
+<div class="container mx-auto xl:w-4/5">
+	<div class="mx-auto lg:w-3/5">
+		<h1 class="mt-8 mb-4 text-2xl bold text-gray-700 text-center dark:text-white">他の人の作成した<br />項目から登録する</h1>
+		<%= link_to others_coping_list_copings_path(@coping_list), class: 'flex items-center justify-center text-sm mb-2 hover:text-green-600 focus:outline-none focus:underline hover:underline' do %>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 font-semibold text-green-600" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+			<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+			</svg>
+			<span class="text-green-600">シャッフルする</span>
+		<% end %>
+	</div>
 
-<% @other_copings.each do |coping_item|%>
-	<%= coping_item.emoji %><%= link_to coping_item.coping_name, copy_coping_list_copings_path(@coping_list, coping_id: coping_item.id) %><br/>
-	<%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %><br/>
-	<br/>
-<% end %>
+	<div class="grid flex-wrap grid-cols-1 gap-3 my-8 xl:mt-12 xl:gap-4 lg:grid-cols-2">
+		<% @other_copings.each do |coping_item|%>
+			<%= link_to copy_coping_list_copings_path(@coping_list, coping_id: coping_item.id), class: 'p-0 text-green-600 capitalize transition-colors duration-200 transform dark:bg-green-500 dark:text-white hover:text-green-600 dark:hover:text-green-500' do %>
+				<div class="w-full p-2 space-y-1 border-2 border-green-200 bg-green-50 hover:bg-green-100 dark:border-green-300 rounded-md">
+					<h2 class="text-center text-xl font-semibold text-green-600 capitalize dark:text-white">
+						<%= "#{coping_item.emoji} #{coping_item.coping_name}" %>
+					</h2>
+					<hr class="h-px my-6 bg-gray-300 border-none">
+					<p class="mt-6 text-sm text-center text-gray-400"><%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %></p>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
+		<div class="mx-auto lg:w-3/5">
+			<%= link_to '自分で新しく項目をを登録する', new_coping_list_coping_path(@coping_list), class:'flex place-item-center items-center justify-center my-4 px-4 py-2 text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+		</div>
+
+	<%= link_to "コーピングリスト一覧に戻る", coping_lists_path, class: 'flex w-auto items-center justify-center mt-6 mb-10 text-md text-green-600 focus:outline-none focus:underline hover:underline' %>
+</div>
