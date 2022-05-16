@@ -14,12 +14,10 @@
     <header class="sticky top-0 z-10">
       <%= render 'shared/navbar' %>
     </header>
-    <div class="container">
-      <main class="flex-grow">
+      <main class="container flex-grow">
         <%= render 'shared/flash_messages' %>
         <%= yield %>
       </main>
-    </div>
     <div class="sticky bottom-0">
       <%= render 'shared/footer' %>
     </div>
