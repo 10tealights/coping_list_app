@@ -12,11 +12,11 @@ class HistoriesController < ApplicationController
   def create
     @history = @coping.histories.build(history_params)
     if @history.save
-      redirect_to coping_list_coping_histories_path(@coping_list, @coping), notice: 'History is successfully created.'
+      redirect_to(coping_list_coping_histories_path(@coping_list, @coping), notice: t('defaults.message.created', item: History.model_name.human))
     else
+      flash[:alert] = t('defaults.message.not_created', item: History.model_name.human)
       render :new
     end
-
   end
 
   private

@@ -7,16 +7,16 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(root_url, notice: 'Login successful')
+      redirect_back_or_to(root_url, notice: t('.login_success'))
     else
-      flash[:alert] = 'Login failed'
+      flash[:alert] = t('.login_failed')
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to(login_url, notice: 'Logged out!')
+    redirect_to(login_url, notice: t('.logout_success'))
   end
 
   private

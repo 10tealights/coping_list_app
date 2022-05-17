@@ -2,7 +2,7 @@ class CopingListsController < ApplicationController
   def index
     @coping_lists = current_user.coping_lists
   end
-  
+
   def new
     @coping_list = CopingList.new
   end
@@ -10,9 +10,9 @@ class CopingListsController < ApplicationController
   def create
     @coping_list = current_user.coping_lists.build(coping_list_params)
     if @coping_list.save
-      redirect_to coping_lists_url, notice: 'Coping lists was successfully created'
+      redirect_to(coping_lists_url, notice: t('defaults.message.created', item: CopingList.model_name.human))
     else
-      flash[:alert] = 'Creating coping lists failed'
+      flash[:alert] = t('defaults.message.not_created', item: CopingList.model_name.human)
       render :new
     end
   end
