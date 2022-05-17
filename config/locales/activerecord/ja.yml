@@ -4,7 +4,7 @@ ja:
       user: 'ユーザー'
       coping_list: 'コーピングリスト'
       coping: 'コーピング項目'
-      history: '評価履歴'
+      history: '評価(履歴)'
     attributes:
       user:
         name: '名前'
@@ -15,7 +15,7 @@ ja:
         list_name: 'コーピングリスト名'
       coping:
         coping_name: 'コーピング項目名'
-        cost_amount: '費用'
+        cost_amount: '費用(円)'
         time_amount: '所要時間(分)'
         emoji: '絵文字'
         status: '非公開設定'

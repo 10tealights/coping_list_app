@@ -12,8 +12,9 @@ class CopingsController < ApplicationController
   def create
     @coping = @coping_list.copings.build(coping_params)
     if @coping.save
-      redirect_to coping_list_copings_path(@coping_list), notice: 'Coping was successfully created.'
+      redirect_to(coping_list_copings_path(@coping_list), notice: t('defaults.message.created', item: Coping.model_name.human))
     else
+      flash[:alert] = t('defaults.message.not_created', item: Coping.model_name.human)
       render :new
     end
   end
