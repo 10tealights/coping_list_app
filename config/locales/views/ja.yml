@@ -1,0 +1,32 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    signup: '登録'
+    logout: 'ログアウト'
+    site_title: "Copin'"
+    message:
+      not_authenticated: 'ログインしてください'
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      updated: '%{item}を更新しました'
+      not_updated: '%{item}を更新できませんでした'
+      deleted: '%{item}を削除しました'
+      delete_alert: '本当に実行してよろしいですか？'
+      password_reset: 'パスワードリセット手順を送信しました'
+      password_reset_success: 'パスワードが変更されました'
+      not_authorized: '権限がありません'
+  users:
+    new:
+      title: 'ユーザー登録'
+      to_login_page: 'ログインページへ'
+    create:
+      signup_success: 'ユーザー登録が完了しました'
+      signup_failed: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      login_success: 'ログインしました'
+      login_failed: 'ログインに失敗しました'
+    destroy:
+      logout_success: 'ログアウトしました'

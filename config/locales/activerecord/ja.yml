@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      coping_list: 'コーピングリスト'
+      coping: 'コーピング項目'
+      history: '評価履歴'
+    attributes:
+      user:
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認)'
+      coping_list:
+        list_name: 'コーピングリスト名'
+      coping:
+        coping_name: 'コーピング項目名'
+        cost_amount: '費用'
+        time_amount: '所要時間(分)'
+        emoji: '絵文字'
+        status: '非公開設定'
+      history:
+        evaluation: '評価'
+        change_amount: '気分の変化'
+        note: 'メモ'
+        created_at: '実行日時'
+        updated_at: '更新日時'
+  enums:
+    coping:
+      status:
+        open: '公開'
+        close: '非公開'
