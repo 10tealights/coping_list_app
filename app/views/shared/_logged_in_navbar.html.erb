@@ -15,15 +15,10 @@
         <div class="lg:flex lg:flex-grow items-center hidden" id="example-collapse-navbar">
           <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-md font-bold leading-snug text-green-600 hover:opacity-75" href="#">
-                使い方
-              </a>
+              <%= link_to 'リスト一覧', coping_lists_path, class: 'px-3 py-2 flex items-center text-md leading-snug text-green-600 hover:opacity-75' %>
             </li>
             <li class="nav-item">
-              <%= link_to '新規登録', new_user_path, class: 'px-3 py-2 flex items-center font-bold leading-snug text-green-600 hover:opacity-75' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'ログイン', login_path, class: 'px-3 py-2 flex items-center font-bold leading-snug text-green-600 hover:opacity-75' %>
+              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'px-3 py-2 flex items-center text-md leading-snug text-green-600 hover:opacity-75' %>
               </a>
             </li>
           </ul>

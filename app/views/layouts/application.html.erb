@@ -12,14 +12,18 @@
 
   <body class="flex flex-col min-h-screen">
     <header class="sticky top-0 z-10">
-      <%= render 'shared/navbar' %>
+      <% if logged_in? %>
+        <%= render 'shared/logged_in_navbar' %>
+      <% else %>
+        <%= render 'shared/navbar' %>
+      <% end %>
     </header>
       <main class="container flex-grow">
         <%= render 'shared/flash_messages' %>
         <%= yield %>
       </main>
-    <div class="sticky bottom-0">
-      <%= render 'shared/footer' %>
-    </div>
+      <div class="bottom-0">
+        <%= render 'shared/footer' %>
+      </div>
   </body>
 </html>
