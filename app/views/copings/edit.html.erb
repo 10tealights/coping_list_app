@@ -3,53 +3,10 @@
 	<p class="mt-2 text-sm text-center text-gray-600"><%= "- #{@coping_list.list_name} -" %></p>
 
   	<!-- edit form -->
-	<div class="mt-4 mb-12">
-		<%= form_with model: @coping, url: coping_list_coping_path(@coping_list), local: true do |f| %>
-			<%= render 'shared/error_messages', { object: f.object } %>
+    <div class="mt-4 mb-12">
+        <%= render 'coping_form', { coping: @coping, coping_list: @coping_list } %>
 
-			<div class="mt-3">
-				<%= f.label :coping_name, class:'block mb-2 text-sm text-gray-600 dark:text-gray-200' %>
-				<%= f.text_field :coping_name, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
-			</div>
-
-            <div class="flex">
-                <div class="flex-1 mt-6">
-                    <%= f.label :cost_amount, class:'block mb-2 text-sm text-gray-600 dark:text-gray-200' %>
-                    <%= f.text_field :cost_amount, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
-                </div>
-
-                <div class="flex-1 ml-2 mt-6">
-                    <div class="flex justify-between mb-2">
-                        <%= f.label :time_amount, class: 'text-sm text-gray-600 dark:text-gray-200' %>
-                    </div>
-                    <%= f.text_field :time_amount, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
-                </div>
-            </div>
-
-            <div class="flex">
-                <div class="flex-1 mt-6">
-                    <div class="flex justify-between mb-2">
-                        <%= f.label :emoji, class: 'text-sm text-gray-600 dark:text-gray-200' %>
-                    </div>
-                    <%= f.text_field :emoji, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
-                </div>
-
-                <div class="flex-1 ml-2 mt-6">
-                    <div class="justify-between mb-2">
-                        <%= f.label :status, class: 'text-sm text-gray-600 dark:text-gray-200' %>
-                    </div>
-                    <div class="ml-7">
-                    <%= f.check_box :status, {}, 'close', 'open' %>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex-col justify-items-auto">
-                    <%= f.submit '編集', class:'w-full mt-4 px-4 py-2 tracking-wide text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
-                    <%= link_to '削除', coping_list_coping_path(@coping_list, @coping), method: :delete, data: { confirm: '本当に削除してよろしいですか？(この削除によりコーピング履歴も自動的に削除されます)' }, class:'inline-block mt-2 w-full px-4 py-2 text-center tracking-wide text-gray-600 transition-colors duration-200 transform bg-red-200 rounded-md hover:bg-red-300 focus:outline-none focus:bg-red-400 focus:ring focus:ring-red-400 focus:ring-opacity-50' %>
-            </div>
-		<% end %>
-
+        <%= link_to 'この項目を削除', coping_list_coping_path(@coping_list, @coping), method: :delete, data: { confirm: '本当に削除してよろしいですか？(この削除によりコーピング履歴も自動的に削除されます)' }, class:'inline-block mt-4 w-full px-4 py-2 text-center tracking-wide text-gray-600 transition-colors duration-200 transform bg-red-200 rounded-md hover:bg-red-300 focus:outline-none focus:bg-red-400 focus:ring focus:ring-red-400 focus:ring-opacity-50' %>
 		<%= link_to "#{@coping_list.list_name}一覧に戻る", coping_list_copings_path(@coping_list), class: 'flex items-center justify-center mt-6 mb-10 text-sm text-green-600 focus:outline-none focus:underline hover:underline' %>
-	</div>
+    </div>
 </div>

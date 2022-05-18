@@ -1,0 +1,44 @@
+<%= form_with model: [coping_list, coping], local: true do |f| %>
+    <%= render 'shared/error_messages', { object: f.object } %>
+
+    <div class="mt-3">
+        <%= f.label :coping_name, class:'block mb-2 text-sm text-gray-600 dark:text-gray-200' %>
+        <%= f.text_field :coping_name, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
+    </div>
+
+    <div class="flex">
+        <div class="flex-1 mt-6">
+            <%= f.label :cost_amount, class:'block mb-2 text-sm text-gray-600 dark:text-gray-200' %>
+            <%= f.text_field :cost_amount, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
+        </div>
+
+        <div class="flex-1 ml-2 mt-6">
+            <div class="flex justify-between mb-2">
+                <%= f.label :time_amount, class: 'text-sm text-gray-600 dark:text-gray-200' %>
+            </div>
+            <%= f.text_field :time_amount, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="flex-1 mt-6">
+            <div class="flex justify-between mb-2">
+                <%= f.label :emoji, class: 'text-sm text-gray-600 dark:text-gray-200' %>
+            </div>
+            <%= f.text_field :emoji, class: 'block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40' %>
+        </div>
+
+        <div class="flex-1 ml-2 mt-6">
+            <div class="justify-between mb-2">
+                <%= f.label :status, class: 'text-sm text-gray-600 dark:text-gray-200' %>
+            </div>
+            <div class="ml-7">
+            <%= f.check_box :status, {}, 'close', 'open' %>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-col justify-items-auto">
+        <%= f.submit '登録', class:'w-full mt-4 px-4 py-2 tracking-wide text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+    </div>
+<% end %>
