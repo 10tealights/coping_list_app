@@ -18,7 +18,7 @@
 						<%= "#{coping_item.emoji} #{coping_item.coping_name}" %>
 					</h2>
 					<hr class="h-px my-6 bg-gray-300 border-none">
-					<p class="mt-6 text-sm text-center text-gray-400"><%= "#{coping_item.time_amount}分 / #{coping_item.cost_amount}円" %></p>
+					<p class="mt-6 text-sm text-center text-gray-400"><%= "#{coping_item.time_amount}分 / #{coping_item.decorate.cost_with_comma}円" %></p>
 				</div>
 			<% end %>
 		<% end %>
