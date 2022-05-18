@@ -1,5 +1,6 @@
 class CopingsController < ApplicationController
-  before_action :set_coping_list, only: %i[index new create show others copy]
+  before_action :set_coping_list, only: %i[index new create edit update destroy others copy]
+  before_action :set_coping, only: %i[edit update destroy]
 
   def index
     @copings = @coping_list.copings
@@ -19,8 +20,20 @@ class CopingsController < ApplicationController
     end
   end
 
-  def show
-    @coping = @coping_list.copings.find(params[:id])
+  def edit; end
+
+  def update
+    if @coping.update(coping_params)
+      redirect_to(coping_list_copings_path(@coping_list), notice: t('defaults.message.updated', item: Coping.model_name.human))
+    else
+      flash[:alert] = t('defaults.message.not_updated', item: Coping.model_name.human)
+      render :edit
+    end
+  end
+
+  def destroy
+    @coping.destroy
+    redirect_to(coping_list_copings_path(@coping_list), notice: t('defaults.message.deleted', item: Coping.model_name.human))
   end
 
   def others
@@ -41,5 +54,9 @@ class CopingsController < ApplicationController
 
   def set_coping_list
     @coping_list = current_user.coping_lists.find(params[:coping_list_id])
+  end
+
+  def set_coping
+    @coping = @coping_list.copings.find(params[:id])
   end
 end
