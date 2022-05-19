@@ -3,9 +3,9 @@
 		<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピングリスト一覧</h1>
 	</div>
 
-	<div class="grid grid-cols-1 gap-3 mt-8 xl:mt-12 xl:gap-5 lg:w-3/5 xl:w-2/5 lg:mx-auto">
+	<div class="grid grid-cols-1 gap-5 mt-8 xl:mt-12 xl:gap-5 lg:w-3/5 xl:w-2/5 lg:mx-auto">
 		<% @coping_lists.each do |coping| %>
-			<div class="p-3 space-y-1 border place-content-end border-green-200 bg-green-50 dark:border-green-300 rounded-md">
+			<div class="px-2 py-3 space-y-1 border place-content-end border-green-200 bg-green-50 dark:border-green-300 rounded-md">
 				<div class="flex items-center">
 					<p class="inline-block text-lg ml-2 font-semibold text-green-600 dark:text-white">
 						<%= coping.list_name %>
@@ -26,7 +26,7 @@
 				<hr class="h-px my-6 bg-gray-300 border-none">
 				<div class="w-auto overflow-hidden rounded-lg dark:bg-gray-800 dark:border-gray-700">
 					<div class="grid grid-cols-3 gap-x-1 justify-items-stretch mt-2 mx-2">
-						<%= link_to shuffle_coping_list_copings_path(coping) do %>
+						<%= link_to coping_list_shuffle_path(coping) do %>
 							<button class="justify-center w-full px-2 py-1 text-white transition-colors duration-200 transform bg-green-500 rounded-md focus:outline-none sm:mx-1 hover:bg-green-600 focus:bg-green-500 focus:ring focus:ring-green-300 focus:ring-opacity-40">
 								<span class="mx-1">
 									ランダム
@@ -34,7 +34,7 @@
 							</button>
 						<% end %>
 						
-						<%= link_to high_late_coping_list_copings_path(coping) do %>
+						<%= link_to coping_list_high_late_path(coping) do %>
 							<button class="justify-center w-full px-2 py-1 text-white transition-colors duration-200 transform bg-green-500 rounded-md focus:outline-none sm:mx-1 hover:bg-green-600 focus:bg-green-500 focus:ring focus:ring-green-300 focus:ring-opacity-40">
 								<span class="mx-1">
 									高評価順
@@ -42,7 +42,7 @@
 							</button>
 						<% end %>
 
-						<%= link_to never_done_coping_list_copings_path(coping) do %>
+						<%= link_to coping_list_never_done_path(coping) do %>
 							<button class="justify-center w-full px-2 py-1 text-white transition-colors duration-200 transform bg-green-500 rounded-md focus:outline-none sm:mx-1 hover:bg-green-600 focus:bg-green-500 focus:ring focus:ring-green-300 focus:ring-opacity-40">
 								<span class="mx-1">
 									未実施
@@ -54,5 +54,15 @@
 			</div>
 		<% end %>
 	</div>
+
 	<%= link_to 'リスト新規作成', new_coping_list_path, class:'inline-block text-center my-5 px-4 py-2 text-gray-600 transition-colors duration-200 transform bg-yellow-200 rounded-md hover:bg-yellow-300 focus:outline-none focus:bg-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50' %>
+
+	<% if @coping_lists.blank? %>
+		<div class="items-center">
+			<h2 class="mb-2 text-lg bold text-gray-700 text-center dark:text-white">コーピングリストがまだありません。</h2>
+			<p class="mt-4 text-gray-700 dark:text-gray-400"> 上のボタンから新規作成できます。</p>
+			<%= link_to "使い方を見てみる", coping_lists_path, class: 'flex w-auto items-center justify-center mt-6 mb-10 text-md text-green-600 focus:outline-none focus:underline hover:underline' %>
+		</div>
+	<% end %>
 </div>
+

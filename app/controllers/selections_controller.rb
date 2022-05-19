@@ -13,7 +13,7 @@ class SelectionsController < CopingsController
     high_rate_copings = Coping.high_avarage_rate(@coping_list).keys
     @selected_copings = @coping_list.copings.find(high_rate_copings)
     if @selected_copings.empty?
-      redirect_to shuffle_coping_list_copings_path(@coping_list), notice: '履歴がないため全項目からランダムで表示しました'
+      redirect_to coping_list_shuffle_path(@coping_list), notice: '履歴がないため全項目からランダムで表示しました'
     else
       render :select
     end
@@ -24,7 +24,7 @@ class SelectionsController < CopingsController
   def never_done
     @selected_copings = @coping_list.copings.no_histories
     if @selected_copings.empty?
-      redirect_to shuffle_coping_list_copings_path(@coping_list), notice: '全て実行済みのため全項目からランダムで表示しました'
+      redirect_to coping_list_shuffle_path(@coping_list), notice: '全て実行済みのため全項目からランダムで表示しました'
     else
       render :select
     end
