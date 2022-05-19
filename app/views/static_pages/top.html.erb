@@ -3,27 +3,28 @@
         <div class="flex-1 mr-2 lg:mr-6 lg:ml-6 md:justify-center">
             <h1 class="self-center text-2xl md:text-4xl font-semibold text-gray-700"><span class="text-green-600">コーピングリスト</span>で<br/>自分のごきげんを守ろう。</h1>
             <p class="mt-4 text-gray-600 dark:text-gray-400">コーピング(coping)とは「ストレス対処」のこと。</p>
-            <p class="mt-4 text-gray-600 dark:text-gray-400">ストレスに対する対策や気分転換、気晴らしの方法をリスト化して、いつでも見られるようにしませんか？</p>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">ストレス対策や気分転換、気晴らしの方法をリスト化して、いつでも見られるようにしませんか？</p>
         </div>
         <div class="flex-initial">
-            <%= image_tag('/assets/with_phone.png', class: 'h-24 md:h-52 md:mr-3 sm:h-44') %>
+            <%= image_tag('with_phone.png', class: 'h-24 md:h-52 md:mr-3 sm:h-44') %>
         </div>
         <div>
-            <%= image_tag('/assets/with_heart.png', class: 'h-24 md:h-52 md:mr-3 lg:mr-16 sm:h-44') %>
+            <%= image_tag('with_heart.png', class: 'h-24 md:h-52 md:mr-3 lg:mr-16 sm:h-44') %>
         </div>
     </div>
 
     <div class="flex mt-5 lg:mr-6 lg:ml-6 justify-center">
-        <%= link_to new_user_path do %>
+        <%= link_to coping_lists_path do %>
             <button class="w-auto px-8 py-2 mr-4 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-200 transform bg-yellow-300 rounded-lg hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400">
                 使い方を見る
             </button>
         <% end %>
-
-        <%= link_to new_user_path do %>
-            <button class="w-auto px-8 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-200 transform bg-yellow-300 rounded-lg hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400">
-                ユーザー登録する
-            </button>
+        <% unless logged_in? %>
+            <%= link_to coping_lists_path do %>
+                <button class="w-auto px-8 py-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-200 transform bg-yellow-300 rounded-lg hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400">
+                    ユーザー登録する
+                </button>
+            <% end %>
         <% end %>
     </div>
 
@@ -44,7 +45,7 @@
                     <p class="text-gray-500 dark:text-gray-300">
                         リストは複数作成できるので、気分転換のリストとストレス軽減のためのリストを分けることもできます。
                     </p>
-                    <%= image_tag('/assets/coping_index.png') %>
+                    <%= image_tag('coping_index.png') %>
                 </div>
 
                 <div class="p-4 lg:p-6 space-y-3 border-2 border-green-400 dark:border-green-300 rounded-xl">
@@ -59,7 +60,7 @@
                     <p class="text-gray-500 dark:text-gray-300">
                         コーピングリストの項目一覧表示だけでなく、ランダムで選ぶ・過去の評価が高かった順に選ぶ・過去に一度も実施したことのないものを選ぶの3種類の方法からコーピングを選ぶことができます。
                     </p>
-                    <%= image_tag('/assets/lists.png') %>
+                    <%= image_tag('lists.png') %>
                 </div>
 
                 <div class="p-4 lg:p-6 space-y-3 border-2 border-green-400 dark:border-green-300 rounded-xl">
@@ -72,9 +73,9 @@
                     <h1 class="text-2xl font-semibold text-green-700 capitalize dark:text-white">気分の変化と評価、メモを記録</h1>
 
                     <p class="text-gray-500 dark:text-gray-300">
-                        コーピング項目を選ぶと、コーピング後の気分の変化量・項目に対しての評価(5段階)・メモを記録することができます。
+                        コーピング項目を選ぶと、コーピング後の気分の変化量・項目に対しての評価(10段階)・メモを記録することができます。
                     </p>
-                    <%= image_tag('/assets/history.png') %>
+                    <%= image_tag('history.png') %>
                 </div>
             </div>
         </div>
