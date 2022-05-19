@@ -1,5 +1,5 @@
 class CopingListsController < ApplicationController
-  before_action :set_coping_list, only: %i[edit destroy histories]
+  before_action :set_coping_list, only: %i[edit update destroy histories]
 
   def index
     @coping_lists = current_user.coping_lists
@@ -20,6 +20,14 @@ class CopingListsController < ApplicationController
   end
 
   def edit; end
+
+  def update
+    if @coping_list.update(coping_list_params)
+      redirect_to(coping_lists_url, notice: t('defaults.message.updated', item: CopingList.model_name.human))
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @coping_list.destroy

@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  skip_before_action :require_login
+
   def new
     @user = User.new
   end
@@ -7,7 +9,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(root_url, notice: t('.login_success'))
+      redirect_back_or_to(coping_lists_path, notice: t('.login_success'))
     else
       flash[:alert] = t('.login_failed')
       render :new
