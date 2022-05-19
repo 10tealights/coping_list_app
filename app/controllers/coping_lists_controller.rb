@@ -1,4 +1,6 @@
 class CopingListsController < ApplicationController
+  before_action :set_coping_list, only: %i[edit destroy histories]
+
   def index
     @coping_lists = current_user.coping_lists
   end
@@ -17,14 +19,14 @@ class CopingListsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def edit; end
 
-  def edit
+  def destroy
+    @coping_list.destroy
+    redirect_to(coping_lists_path, notice: t('defaults.message.deleted', item: CopingList.model_name.human))
   end
 
   def histories
-    @coping_list = current_user.coping_lists.find(params[:id])
     @histories = History.joins(:coping).where(copings: { coping_list_id: @coping_list.id }).order(created_at: :desc)
   end
 
@@ -32,5 +34,9 @@ class CopingListsController < ApplicationController
 
   def coping_list_params
     params.require(:coping_list).permit(:list_name)
+  end
+
+  def set_coping_list
+    @coping_list = current_user.coping_lists.find(params[:id])
   end
 end

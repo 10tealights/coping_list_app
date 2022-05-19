@@ -1,5 +1,5 @@
 class HistoriesController < ApplicationController
-  before_action :set_coping_list_and_coping
+  before_action :set_coping_list_and_coping, only: %i[index new create]
 
   def index
     @histories = @coping.histories.includes(:coping).order(created_at: :desc)
@@ -17,6 +17,13 @@ class HistoriesController < ApplicationController
       flash[:alert] = t('defaults.message.not_created', item: History.model_name.human)
       render :new
     end
+  end
+
+  def destroy
+    @history = History.find(params[:id])
+    coping_list = CopingList.find(@history.coping.coping_list_id)
+    @history.destroy
+    redirect_to(histories_coping_list_path(coping_list), notice: t('defaults.message.deleted', item: History.model_name.human))
   end
 
   private

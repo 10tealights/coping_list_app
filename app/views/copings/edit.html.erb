@@ -1,0 +1,12 @@
+<div class="mx-auto lg:w-3/5">
+	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピング編集</h1>
+	<p class="mt-2 text-sm text-center text-gray-600"><%= "- #{@coping_list.list_name} -" %></p>
+
+  	<!-- edit form -->
+    <div class="mt-4 mb-12">
+        <%= render 'coping_form', { coping: @coping, coping_list: @coping_list } %>
+
+        <%= link_to 'この項目を削除', coping_list_coping_path(@coping_list, @coping), method: :delete, data: { confirm: '本当に削除してよろしいですか？(この削除によりコーピング履歴も自動的に削除されます)' }, class:'inline-block mt-4 w-full px-4 py-2 text-center tracking-wide text-gray-600 transition-colors duration-200 transform bg-red-200 rounded-md hover:bg-red-300 focus:outline-none focus:bg-red-400 focus:ring focus:ring-red-400 focus:ring-opacity-50' %>
+		<%= link_to "#{@coping_list.list_name}一覧に戻る", coping_list_copings_path(@coping_list), class: 'flex items-center justify-center mt-6 mb-10 text-sm text-green-600 focus:outline-none focus:underline hover:underline' %>
+    </div>
+</div>
