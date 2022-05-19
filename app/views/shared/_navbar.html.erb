@@ -3,9 +3,7 @@
     <nav class="relative flex flex-wrap items-center justify-between px-2 py-1 bg-green-100 shadow-md">
       <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
-          <a class="text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-green-600" href="#pablo">
-            Copin'
-          </a>
+          <%= link_to t('defaults.site_title'), root_path, class: 'text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-green-600 hover:opacity-75' %>
           <button class="text-green-600 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
             <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current">
                 <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>

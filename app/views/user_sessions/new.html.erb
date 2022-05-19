@@ -1,5 +1,7 @@
+<% content_for(:title, t('.title')) %>
+
 <div class="mx-auto lg:w-3/5">
-	<h1 class="my-8 lg:my-16 text-2xl bold text-gray-700 text-center dark:text-white">ログイン</h1>
+	<h1 class="my-8 lg:my-16 text-2xl bold text-gray-700 text-center dark:text-white"><%= t('.title') %></h1>
   	<!-- login form -->
 	<div class="my-10 lg:my-24">
 		<%= form_with url: login_path, local: true do |f| %>

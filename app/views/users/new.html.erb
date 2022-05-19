@@ -1,5 +1,7 @@
+<% content_for(:title, t('.title')) %>
+
 <div class="mx-auto lg:w-3/5">
-	<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white">ユーザー新規登録</h1>
+	<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white"><%= t('.title') %></h1>
   	<!-- login form -->
 	<div class="mb-32">
 		<%= form_with model: @user, local: true do |f| %>
@@ -34,6 +36,6 @@
 
 		<% end %>
 
-		<p class="mt-6 text-sm text-center text-gray-400">アカウントをお持ちの方は <%= link_to 'ログイン', login_path, class: 'text-green-600 focus:outline-none focus:underline hover:underline' %>
+		<p class="mt-6 text-md text-center text-gray-400">アカウントをお持ちの方は <%= link_to 'ログイン', login_path, class: 'text-green-600 focus:outline-none focus:underline hover:underline' %></p>
 	</div>
 </div>

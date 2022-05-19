@@ -1,5 +1,7 @@
+<% content_for(:title, "#{@coping_list.list_name}の評価履歴") %>
+
 <div class="container mx-auto lg:w-3/5 p-2">
-	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white">評価履歴</h1>
+	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white"><%= t('.title') %></h1>
 	<p class="mt-3 mb-6 text-sm text-center text-gray-600"><%= @coping_list.list_name %></p>
 
 	<%= render partial: 'histories/history', collection: @histories %>

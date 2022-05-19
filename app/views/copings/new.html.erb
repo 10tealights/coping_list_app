@@ -1,5 +1,7 @@
+<% content_for(:title, t('.title')) %>
+
 <div class="mx-auto lg:w-3/5">
-	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピング登録</h1>
+	<h1 class="mt-8 text-2xl bold text-gray-700 text-center dark:text-white"><%= t('.title') %></h1>
 	<p class="mt-2 text-sm text-center text-gray-600"><%= "- #{@coping_list.list_name} -" %></p>
 
 	<%= link_to others_coping_list_copings_path(@coping_list), class: 'flex items-center justify-center text-sm my-4 hover:text-green-600 focus:outline-none focus:underline hover:underline' do %>

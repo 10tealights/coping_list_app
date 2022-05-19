@@ -30,3 +30,34 @@ ja:
       login_failed: 'ログインに失敗しました'
     destroy:
       logout_success: 'ログアウトしました'
+  coping_lists:
+    index:
+      title: 'コーピングリスト一覧'
+    new:
+      title: 'コーピングリスト新規作成'
+    edit:
+      title: 'コーピングリスト編集'
+      delete: 'このリストを削除'
+    histories:
+      title: '評価履歴'
+  copings:
+    index:
+      title: 'コーピング一覧'
+    new:
+      title: 'コーピング登録'
+    edit:
+      title: 'コーピング編集'
+      delete: 'この項目を削除'
+    coping_form:
+      submit: '登録'
+    others:
+      title: '他の人の作成した項目から登録する'
+  selections:
+    select:
+      title: 'コーピング選択'
+  histories:
+    index:
+      title: '評価履歴'
+    new:
+      title: '評価登録'
+      submit: '記録'

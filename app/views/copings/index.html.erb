@@ -1,5 +1,7 @@
+<% content_for(:title, "#{@coping_list.list_name}のコーピング一覧") %>
+
 <div class="container mx-auto lg:w-3/5 p-2">
-	<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピング一覧</h1>
+	<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white"><%= t('.title') %></h1>
 
 	<div class="w-full max-w-screen-xl mx-auto">
 		<div class="flex justify-center y-10">

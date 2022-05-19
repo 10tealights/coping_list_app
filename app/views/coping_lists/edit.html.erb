@@ -1,9 +1,11 @@
+<% content_for(:title, t('.title')) %>
+
 <div class="mx-auto lg:w-3/5">
 	<h1 class="my-8 text-2xl bold text-gray-700 text-center dark:text-white">コーピングリスト<br />編集</h1>
 
 	<div class="mt-8 mb-5">
 		<%= render 'coping_list_form', { coping_list: @coping_list } %>
-        <%= link_to 'リストを削除', coping_list_path(@coping_list), method: :delete, data: { confirm: '本当に削除してよろしいですか？(この削除によりコーピング項目・コーピング履歴も自動的に削除されます)' }, class:'inline-block mt-4 w-full px-4 py-2 text-center tracking-wide text-gray-600 transition-colors duration-200 transform bg-red-200 rounded-md hover:bg-red-300 focus:outline-none focus:bg-red-400 focus:ring focus:ring-red-400 focus:ring-opacity-50' %>
+        <%= link_to t('.delete'), coping_list_path(@coping_list), method: :delete, data: { confirm: '本当に削除してよろしいですか？(この削除によりコーピング項目・コーピング履歴も自動的に削除されます)' }, class:'inline-block mt-4 w-full px-4 py-2 text-center tracking-wide text-gray-600 transition-colors duration-200 transform bg-red-200 rounded-md hover:bg-red-300 focus:outline-none focus:bg-red-400 focus:ring focus:ring-red-400 focus:ring-opacity-50' %>
 	</div>
 	<%= link_to 'リスト一覧へ戻る', coping_lists_path, class: 'flex items-center justify-center mb-10 text-green-600 focus:outline-none focus:underline hover:underline' %>
 </div>
