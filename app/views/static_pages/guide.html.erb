@@ -1,0 +1,154 @@
+<div class="lg:container w-full xl:w-5/6 text-gray-700">
+    <h1 class="my-12 text-center self-center text-3xl md:text-4xl font-semibold"><span class="text-green-600">Copin'</span>の使い方ガイド</h1>
+
+    <div class="mb-4 self-center">
+        <ul>
+            <li><span class="text-green-600">●</span><a href="#whats_coping" class="hover:text-green-600">コーピングとは？</a></li>
+            <li><span class="text-green-600">●</span><a href="#create_copinglist" class="hover:text-green-600">コーピングリストの作成</a></li>
+            <li><span class="text-green-600">●</span><a href="#create_coping" class="hover:text-green-600">コーピング項目の作成</a></li>
+            <li><span class="text-green-600">●</span><a href="#select_coping" class="hover:text-green-600">コーピングの選択</a></li>
+            <li><span class="text-green-600">●</span><a href="#create_history" class="hover:text-green-600">コーピング実施後の評価記録(履歴)作成</a></li>
+            <li><span class="text-green-600">●</span><a href="#edit_delete" class="hover:text-green-600">リスト・コーピング項目・評価記録(履歴)の編集と削除</a></li>
+        </ul>
+    </div>
+
+    <span class="inline-block mb-1" id="whats_coping"></span>
+    <h2 class="mt-20 mb-3 col-span-3 font-semibold text-center self-center lg:text-left text-xl text-green-600">コーピングとは？</h2>
+    <hr class="mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1 lg:mt-6 lg:mr-4">
+            <p>コーピング(coping)とは、ストレスにうまく対処しようとすること。</p>
+            <p>コーピングには「問題焦点型」「情動焦点型」「ストレス解消型」の3種類があると言われています。</p>
+            <p>コーピングリストとは、ストレスに対処するための行動をまとめたリストを指します。</p>
+        </div>
+        <div class="lg:ml-4 col-span-2">
+            <table class="table-fixed">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th class="w-4/7 px-4 py-2 text-gray-600">種類</th>
+                            <th class="w-3/7 px-4 py-2 text-gray-600">内容</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="border px-3 py-2">問題焦点型</td>
+                        <td class="border px-3 py-2">ストレスの元となっている原因に対して働きかける</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-3 py-2">情動焦点型</td>
+                        <td class="border px-3 py-2">ストレスとなっている原因に対する自分の考え方・捉え方に注目する</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-3 py-2">ストレス解消型</td>
+                        <td class="border px-3 py-2">自分の好きなことをするなど気晴らしをする</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <span class="inline-block mb-1" id="create_copinglist"></span>
+    <h2 class="mt-20 mb-3 col-span-3 font-semibold text-center self-center lg:text-left text-xl text-green-600">コーピングリストの作成</h2>
+    <hr class="mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <p class="mb-3">ユーザー新規登録をしていただき、ログインをする、もしくはログイン後にメニューより「リスト一覧」を選択し、コーピングリスト一覧画面を表示します。<p>
+            <p>「新規作成」ボタンより、コーピングリスト名(30文字以内)を入力し、「登録」ボタンを押すことでリスト自体の作成ができます。</p>
+            <p class="mb-3">リストは1つだけでなく、複数作成することができます。</p>
+        </div>
+        <div class="col-span-2">
+            <%= image_tag('guide_1.png', class: 'ml-1') %>
+        </div>
+    </div>
+
+    <span class="inline-block mb-1" id="create_coping"></span>
+    <h2 class="mt-20 mb-3 col-span-3 font-semibold text-center self-center lg:text-left text-xl text-green-600">コーピング項目の作成</h2>
+    <hr class="mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <p>コーピング項目を追加したいリストの「一覧」を押し、「このリストにコーピングを追加する」ボタンから新規に項目を作成できます。</p>
+        </div>
+        <div class="col-span-2">
+            <%= image_tag('guide_2.png', class: 'ml-1') %>
+        </div>
+    </div>
+
+        <div class="mt-4 lg:mt-12 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <h3 class="font-semibold">【自分で新規に追加する場合】</h3>
+            <p>実施したいコーピングの内容を入力します。登録する項目を他の人に公開したくない場合は非公開設定にチェックを入れます。</p>
+            <ul class="mt-3 mb-6">
+                <li><span class="text-green-600">●</span>コーピング項目名(<span class="text-green-600">必須</span>)</li>
+                <li><span class="text-green-600">●</span>費用(任意)</li>
+                <li><span class="text-green-600">●</span>所用時間(任意)</li>
+                <li><span class="text-green-600">●</span>絵文字(<span class="text-green-600">必須</span>) <span class="text-xs">※一部使えない絵文字があります</span></li>
+                <li><span class="text-green-600">●</span>非公開設定(<span class="text-green-600">必須</span>)</li>
+            </ul>
+            <h3 class="font-semibold">【他の人の作成した項目を追加する場合】</h3>
+            <p>「他の人の作成した項目から登録する」より、ランダムで他の人が公開しているコーピングを探すことができます。</p>
+            <p>追加したい項目を選択すると、作成画面に情報がコピーされますので、必要であれば費用や所要時間などご自身にあったものに変更します。</p>
+            <p class="mt-3">入力が終わったら「登録」ボタンを押すことで、コーピング項目の作成ができます。</p>
+        </div>
+        <div class="col-span-2">
+            <%= image_tag('guide_3.png', class: 'ml-1') %>
+        </div>
+    </div>
+
+    <span class="inline-block mb-1" id="select_coping"></span>
+    <h2 class="mt-20 mb-3 col-span-3 font-semibold text-center self-center lg:text-left text-xl text-green-600">コーピングの選択</h2>
+    <hr class="mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <p>リスト一覧にある下記のボタンからコーピングを選ぶことができます。</p>
+            <p>いずれかのボタンを選択すると、コーピング項目が5つ表示されます(リスト内のコーピング数が合計で5個以下の場合はすべて表示されます)。</p>
+            <ul class="mt-3 mb-6">
+                <li><span class="text-green-600">●</span>ランダム(リスト内の全項目からランダム)</li>
+                <li><span class="text-green-600">●</span>高評価順(過去の履歴より評価の平均値が高い順)</li>
+                <li><span class="text-green-600">●</span>未実施(評価の履歴がひとつもないもの)</li>
+            </ul>
+            <p>選択すると、次の項目で説明する評価の作成画面に移動します。評価作成画面には上記3つのボタン以外にも、コーピング一覧画面からも選ぶことができます。</p>
+
+        </div>
+        <div class="col-span-2">
+            <%= image_tag('guide_4.png', class: 'ml-1') %>
+        </div>
+    </div>
+
+    <span class="inline-block mb-1" id="create_history"></span>
+    <h2 class="mt-20 mb-3 col-span-3 font-semibold text-center self-center lg:text-left text-xl text-green-600">コーピング実施後の評価記録(履歴)作成</h2>
+    <hr class="mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1">
+            <p>前項目(コーピングの選択)の操作でコーピング項目をひとつ選ぶ、もしくはコーピング一覧画面からコーピング名を選択することで、コーピング実施後の評価を作成する画面が開きます。</p>
+            <p>下記項目について記録ができます。</p>
+            <ul class="mt-3 mb-6">
+                <li><span class="text-green-600">●</span>気分の変化(-100〜100で選択)(<span class="text-green-600">必須</span>)</li>
+                <li><span class="text-green-600">●</span>評価(項目の全体評価、1〜5まで0.5刻み)(<span class="text-green-600">必須</span>)</li>
+                <li><span class="text-green-600">●</span>メモ(気づいたことなど)</li>
+            </ul>
+            <p>デフォルトで気分の変化0・評価3となっていますので、選択もメモの入力もせずに記録をすると、その内容で記録がされます。</p>
+            <p>コーピングリスト一覧画面の「履歴」から各リストの履歴をいつでも見ることができます。</p>
+        </div>
+        <div class="col-span-2">
+            <%= image_tag('guide_5.png', class: 'ml-1') %>
+        </div>
+    </div>
+
+    <span class="inline-block mb-1" id="edit_delete"></span>
+    <h2 class="mt-14 mb-5 col-span-3 font-semibold text-center self-center lg:text-left text-xl text-green-600">リスト・コーピング項目・評価履歴の編集と削除</h2>
+    <hr class="mb-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-12">
+        <div class="col-span-1">
+            <h3 class="font-semibold">【コーピングリスト】</h3>
+            <p class="mb-3">コーピング項目一覧画面下部に「リスト名を編集」ボタンがありますので、こちらからコーピングリスト名の編集および削除ができます。</p>
+            <h3 class="font-semibold">【コーピング項目】</h3>
+            <p class="mb-3">各コーピング項目の右端に鉛筆アイコンがありますので、こちらからコーピング項目の編集および削除ができます。</p>
+            <h3 class="font-semibold">【評価記録(履歴)】</h3>
+            <p class="mb-3">各記録の右上部分にゴミ箱アイコンがありますので、こちらから記録の削除ができます(編集はできません)。</p>
+            <p class="mb-3 text-yellow-700 text-xs">※コーピングリストを削除をするとリスト内にある全コーピング項目および全評価記録(履歴)が、コーピング項目を削除するとその項目についての全評価記録(履歴)が同時に削除されます。ご注意ください。</p>
+        </div>
+        <div class="col-span-2">
+            <%= image_tag('guide_6.png', class: 'ml-1') %>
+        </div>
+    </div>
+</div>
