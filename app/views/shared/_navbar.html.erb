@@ -13,9 +13,7 @@
         <div class="lg:flex lg:flex-grow items-center hidden" id="example-collapse-navbar">
           <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-md font-bold leading-snug text-green-600 hover:opacity-75" href="#">
-                使い方
-              </a>
+              <%= link_to '使い方', guide_path, class: 'px-3 py-2 flex items-center font-bold leading-snug text-green-600 hover:opacity-75' %>
             </li>
             <li class="nav-item">
               <%= link_to '新規登録', new_user_path, class: 'px-3 py-2 flex items-center font-bold leading-snug text-green-600 hover:opacity-75' %>
