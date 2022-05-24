@@ -6,7 +6,4 @@
   gtag('js', new Date());
 
   gtag('config', 'G-TC5XG8TTJ2');
-  if (#{raw current_user.to_json}) {
-    gtag('set', {'user_id': #{raw current_user.to_json}.id});
-  }
 </script>
