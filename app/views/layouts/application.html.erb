@@ -22,6 +22,10 @@
     <meta property="og:site_name" content="Copin'" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <% if Rails.env.production? %>
+      <%= render 'shared/google_analytics' %>
+    <% end %>
   </head>
 
   <body class="flex flex-col min-h-screen">
